@@ -3,6 +3,7 @@
 #include <vcl.h>
 #include <Windows.h>
 #include <TlHelp32.h>
+#include "winioctl.h"
 #include <string>
 #pragma hdrstop
 
@@ -12,6 +13,9 @@
 #pragma resource "*.dfm"
 TMainWindow *MainWindow;
 //---------------------------------------------------------------------------
+
+#define DEVICE_SEND CTL_CODE(FILE_DEVICE_UNKNOWN, 0x801, METHOD_BUFFERED, FILE_WRITE_DATA)
+#define DEVICE_REC  CTL_CODE(FILE_DEVICE_UNKNOWN, 0x802, METHOD_BUFFERED, FILE_READ_DATA)
 
 // Getting process list into ListBox
 void GetProcessList()
@@ -73,10 +77,29 @@ int PidParser(UnicodeString processInfo)
 	return pID.ToInt();
 }
 
+// Driver handle
+HANDLE hDriver = NULL;
+
 //---------------------------------------------------------------------------
 __fastcall TMainWindow::TMainWindow(TComponent* Owner)
 	: TForm(Owner)
 {
+}
+//---------------------------------------------------------------------------
+BOOL DriverCreate()
+{
+	hDriver = CreateFile(TEXT("\\\\.\\keMode_killer_link"), GENERIC_ALL, 0, 0, OPEN_EXISTING,
+								FILE_ATTRIBUTE_SYSTEM, 0);
+	if (hDriver == INVALID_HANDLE_VALUE)
+	{
+		MessageBox(MainWindow->Handle, TEXT("Can't get driver handle"), TEXT("ERROR"), MB_OK | MB_ICONERROR);
+		return FALSE;
+	}
+	return TRUE;
+}
+VOID DriverClose()
+{
+    CloseHandle(hDriver);
 }
 //---------------------------------------------------------------------------
 void __fastcall TMainWindow::UpdateProcess_ButtonClick(TObject *Sender)
@@ -87,16 +110,23 @@ void __fastcall TMainWindow::UpdateProcess_ButtonClick(TObject *Sender)
 void __fastcall TMainWindow::FormCreate(TObject *Sender)
 {
 	GetProcessList();
+    DriverCreate();
 }
 //---------------------------------------------------------------------------
-
 void __fastcall TMainWindow::KillProcess_ButtonClick(TObject *Sender)
 {
 	for (int i = 0; i < MainWindow->ProcessContainer_ListBox->Items->Count; i++)
 	{
 		if (i == MainWindow->ProcessContainer_ListBox->ItemIndex)
 		{
-			KillProcessById(PidParser(MainWindow->ProcessContainer_ListBox->Items->Strings[MainWindow->ProcessContainer_ListBox->ItemIndex]));
+            int pID = PidParser(MainWindow->ProcessContainer_ListBox->Items->Strings[MainWindow->ProcessContainer_ListBox->ItemIndex]);
+			DWORD read;
+			int outputData;
+
+			if (!DeviceIoControl(hDriver, DEVICE_SEND, &pID, sizeof(pID), &outputData, sizeof(outputData), &read, NULL))
+			{
+				MessageBox(MainWindow->Handle, TEXT("Send error"), TEXT("ERROR"), MB_OK | MB_ICONERROR);
+			}
             GetProcessList();
 		}
 	}

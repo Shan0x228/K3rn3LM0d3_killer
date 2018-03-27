@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #include <Vcl.Styles.hpp>
 #include <Vcl.Themes.hpp>
-USEFORM("Unit1.cpp", Form1);
+USEFORM("Unit1.cpp", MainWindow);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -14,8 +14,8 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		TStyleManager::TrySetStyle("Charcoal Dark Slate");
-		Application->CreateForm(__classid(TForm1), &Form1);
+		TStyleManager::TrySetStyle("Tablet Light");
+		Application->CreateForm(__classid(TMainWindow), &MainWindow);
 		Application->Run();
 	}
 	catch (Exception &exception)
