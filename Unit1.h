@@ -7,15 +7,23 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include <Vcl.ComCtrls.hpp>
 //---------------------------------------------------------------------------
-class TForm1 : public TForm
+class TMainWindow : public TForm
 {
 __published:	// IDE-managed Components
+	TButton *KillProcess_Button;
+	TListBox *ProcessContainer_ListBox;
+	TButton *UpdateProcess_Button;
+	TStatusBar *StatusBar1;
+	void __fastcall UpdateProcess_ButtonClick(TObject *Sender);
+	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall KillProcess_ButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
-	__fastcall TForm1(TComponent* Owner);
+	__fastcall TMainWindow(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm1 *Form1;
+extern PACKAGE TMainWindow *MainWindow;
 //---------------------------------------------------------------------------
 #endif
