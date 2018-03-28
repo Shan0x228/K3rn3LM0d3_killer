@@ -8,7 +8,7 @@ Class=Sample ; TODO: edit Class
 ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
 Provider=%ManufacturerName%
 CatalogFile=keM0de_killer.cat
-DriverVer = 03/27/2018,21.15.15.204
+DriverVer = 03/28/2018,10.12.58.483
 
 [DestinationDirs]
 DefaultDestDir = 12

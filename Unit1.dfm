@@ -5,7 +5,7 @@ object MainWindow: TMainWindow
   BorderStyle = bsSingle
   Caption = 'Kernel mode killer'
   ClientHeight = 344
-  ClientWidth = 362
+  ClientWidth = 361
   Color = clBtnFace
   Font.Charset = RUSSIAN_CHARSET
   Font.Color = clWindowText
@@ -14,6 +14,7 @@ object MainWindow: TMainWindow
   Font.Style = [fsBold]
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 16
@@ -59,7 +60,7 @@ object MainWindow: TMainWindow
   object StatusBar1: TStatusBar
     Left = 0
     Top = 325
-    Width = 362
+    Width = 361
     Height = 19
     Panels = <
       item
@@ -68,6 +69,6 @@ object MainWindow: TMainWindow
       end>
     ParentShowHint = False
     ShowHint = False
-    ExplicitWidth = 361
+    ExplicitWidth = 474
   end
 end

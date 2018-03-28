@@ -19,6 +19,7 @@ __published:	// IDE-managed Components
 	void __fastcall UpdateProcess_ButtonClick(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall KillProcess_ButtonClick(TObject *Sender);
+	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TMainWindow(TComponent* Owner);
