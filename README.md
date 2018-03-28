@@ -12,21 +12,21 @@
 
 ### Installation :)
 
-1. Open CMD with admin-rights and enter commands:
+1. Run ```Enable_driver_install.bat``` with admin rights.
 
-2. bcdedit.exe -set loadoptions DDISABLE_INTEGRITY_CHECKS
+2. Reboot PC.
 
-3. bcdedit.exe -set TESTSIGNING ON (OFF to remove)
+3. Drop ```keM0de_killer.sys``` file to C: drive.
 
-4. Reboot PC
+4. Run ```KernelModeKiller.exe``` with admin-rights.
 
-5. Drop ```keM0de_killer.sys``` file to C: drive.
+5. After testing driver, run ```Disable_driver_install.bat``` with admin rights to restore default settings.
 
-6. Run ```KernelModeKiller.exe``` with admin-rights.
+6. Reboot PC.
 
 ---
 
 ## Coded by
 
     ♥Shan0x228
-[YouTube channel](https://www.youtube.com/channel/UCmJT3IfHtpFJyln2UdABBKg)    
+[YouTube channel](https://www.youtube.com/channel/UCmJT3IfHtpFJyln2UdABBKg)
