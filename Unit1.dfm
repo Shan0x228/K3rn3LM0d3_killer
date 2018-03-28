@@ -65,6 +65,10 @@ object MainWindow: TMainWindow
     Panels = <
       item
         Text = 'Driver status:'
+        Width = 150
+      end
+      item
+        Text = 'Version: 1.0.0.0'
         Width = 50
       end>
     ParentShowHint = False
