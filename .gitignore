@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+Win32/
+Win64/
