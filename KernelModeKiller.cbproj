@@ -161,7 +161,7 @@
         <AppExecutionLevel>requireAdministrator</AppExecutionLevel>
         <LinkPackageStatics>rtl.lib;vcl.lib</LinkPackageStatics>
         <VerInfo_Keys>CompanyName=;FileDescription=KernelM0d3_killer GUI;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=KernelM0d3_killer;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <Icon_MainIcon>KernelModeKiller_Icon2.ico</Icon_MainIcon>
+        <Icon_MainIcon>KernelModeKiller_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="KernelModeKiller.cpp">
