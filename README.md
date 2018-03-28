@@ -10,11 +10,19 @@
 
 ---
 
-### Some-install :)
+### Installation :)
 
-1. Drop .sys file to C: drive.
+1. Open CMD with admin-rights and enter commands:
 
-2. Run .exe with admin-rights.
+2. bcdedit.exe -set loadoptions DDISABLE_INTEGRITY_CHECKS
+
+3. bcdedit.exe -set TESTSIGNING ON (OFF to remove)
+
+4. Reboot PC
+
+5. Drop ```keM0de_killer.sys``` file to C: drive.
+
+6. Run ```KernelModeKiller.exe``` with admin-rights.
 
 ---
 
